@@ -56,10 +56,19 @@ export function HowItWorksSection() {
                 <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
                   {step.icon}
                 </div>
-                <div className="absolute top-8 left-full hidden h-0.5 w-full -translate-y-1/2 bg-primary/30 md:block" />
-                <div className="absolute top-8 right-0 hidden h-8 w-8 -translate-y-1/2 translate-x-1/2 text-primary md:block">
-                  {index < steps.length - 1 && <ArrowRight className="h-8 w-8" />}
-                </div>
+
+                {/* Only show connector line between steps (not after the last step) */}
+                {index < steps.length - 1 && (
+                  <div className="absolute top-8 left-full hidden h-0.5 w-full -translate-y-1/2 bg-primary/30 md:block" />
+                )}
+
+                {/* Only show arrow between steps (not after the last step) */}
+                {index < steps.length - 1 && (
+                  <div className="absolute top-8 left-[calc(100%+1rem)] hidden -translate-y-1/2 text-primary md:block">
+                    <ArrowRight className="h-8 w-8" />
+                  </div>
+                )}
+
                 <h3 className="text-xl font-bold text-base-content">{step.title}</h3>
                 <p className="text-center text-base-content/70">{step.description}</p>
               </motion.div>

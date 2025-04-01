@@ -2,10 +2,11 @@
 import { motion } from "framer-motion"
 import { ArrowRight, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export function HeroSection() {
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-base-100 pt-16 md:pt-20">
+    <section className="pt-16 w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-base-100">
       <div className="container px-4 md:px-6">
         <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
           <motion.div
@@ -47,9 +48,11 @@ export function HeroSection() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.5 }}
             >
-              <Button size="lg" className="bg-primary text-primary-content hover:bg-primary/90">
-                Start Trading <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+              <Link href="/trade">
+                <Button size="lg" className="bg-primary text-primary-content hover:bg-primary/90">
+                  Start Trading <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
               <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary/10">
                 Learn More
               </Button>

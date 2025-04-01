@@ -3,14 +3,18 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import {  Menu, X, Zap } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Menu, X, Zap, Rocket } from "lucide-react"
 import { useMediaQuery } from "@/hooks/use-mobile"
+import { usePathname } from "next/navigation"
 import { ConnectButton } from "@rainbow-me/rainbowkit"
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const isMobile = useMediaQuery("(max-width: 768px)")
+  const pathname = usePathname()
+  const isTradeRoute = pathname === "/trade"
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,17 +34,21 @@ export function Header() {
   }
 
   const navItems = [
-    { name: "Home", href: "#" },
-    { name: "Features", href: "#" },
-    { name: "How It Works", href: "#" },
-    { name: "Pricing", href: "#" },
-    { name: "FAQ", href: "#" },
+    { name: "Home", href: "/" },
+    { name: "Features", href: "/#features" },
+    { name: "How It Works", href: "/#how-it-works" },
+    { name: "FAQ", href: "/#faq" },
   ]
+
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/"
+    return pathname.startsWith(href)
+  }
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-base-100/95 backdrop-blur-sm shadow-md" : "bg-transparent"
+        isScrolled ? "bg-base-100/95 backdrop-blur-sm shadow-md" : "bg-base-100"
       }`}
     >
       <div className="container px-4 md:px-6 mx-auto">
@@ -58,23 +66,32 @@ export function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-base-content/80 hover:text-primary transition-colors"
+                className={`transition-colors ${
+                  isActive(item.href) ? "text-primary font-medium" : "text-base-content/80 hover:text-primary"
+                }`}
               >
                 {item.name}
               </Link>
             ))}
           </nav>
 
-          {/* Connect Wallet Button (Desktop) */}
-          <div className="hidden md:block">
-          <ConnectButton/>
+          {/* Desktop Action Buttons */}
+          <div className="hidden md:flex items-center space-x-3">
+            {!isTradeRoute && (
+              <Link href="/trade">
+                <Button variant="outline" className="border-primary text-primary hover:bg-primary/10">
+                  <Rocket className="mr-2 h-4 w-4" /> Launch App
+                </Button>
+              </Link>
+            )}
+            <ConnectButton />
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
-            <ConnectButton/>
+            <Button variant="ghost" size="icon" onClick={toggleMenu} className="text-base-content">
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-              <ConnectButton/>
+            </Button>
           </div>
         </div>
       </div>
@@ -93,13 +110,24 @@ export function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-base-content/80 hover:text-primary transition-colors py-2"
+                className={`transition-colors py-2 ${
+                  isActive(item.href) ? "text-primary font-medium" : "text-base-content/80 hover:text-primary"
+                }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
               </Link>
             ))}
-            <ConnectButton/>
+            {!isTradeRoute && (
+              <Link href="/trade" onClick={() => setIsMenuOpen(false)}>
+                <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/10">
+                  <Rocket className="mr-2 h-4 w-4" /> Launch App
+                </Button>
+              </Link>
+            )}
+            <div className="w-full">
+              <ConnectButton />
+            </div>
           </div>
         </motion.div>
       )}
