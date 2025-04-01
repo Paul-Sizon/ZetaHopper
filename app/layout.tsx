@@ -3,9 +3,8 @@ import './globals.css'
 import Providers from './providers';
 
 export const metadata: Metadata = {
-  title: 'App',
-  description: 'Created with v0',
-  generator: 'v0.dev',
+  title: 'ZetaHopper',
+  description: 'Onchain trading bot for Zetachain',  
 }
 
 export default function RootLayout({
