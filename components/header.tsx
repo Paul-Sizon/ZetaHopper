@@ -17,7 +17,7 @@ export function Header() {
   const pathname = usePathname()
   const router = useRouter()
   const isTradeRoute = pathname === "/trade"
-    const isHomePage = pathname === "/"
+  const isHomePage = pathname === "/"
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,7 +38,7 @@ export function Header() {
 
   const handleNavigation = (href: string) => {
     setIsMenuOpen(false) // Close mobile menu if open
-    
+
     if (!isHomePage) {
       // If we're not on the home page, first navigate to home
       router.push('/')
@@ -53,7 +53,7 @@ export function Header() {
   }
 
   const navItems = [
-    { name: "Home", href: "home" },    
+    { name: "Home", href: "home" },
     { name: "How It Works", href: "how-it-works" },
     { name: "FAQ", href: "faq" },
   ]
@@ -64,9 +64,8 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-base-100/95 backdrop-blur-sm shadow-md" : "bg-base-100"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-base-100/95 backdrop-blur-sm shadow-md" : "bg-base-100"
+        }`}
     >
       <div className="container px-4 md:px-6 mx-auto">
         <div className="flex h-16 items-center justify-between">
@@ -79,33 +78,31 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
-        {navItems.map((item) => (
-          isHomePage ? (
-            <ScrollLink
-              key={item.name}
-              to={item.href}
-              smooth={true}
-              duration={500}
-              offset={-70}
-              className={`transition-colors cursor-pointer ${
-                isActive(item.href) ? "text-primary font-medium" : "text-base-content/80 hover:text-primary"
-              }`}
-            >
-              {item.name}
-            </ScrollLink>
-          ) : (
-            <button
-              key={item.name}
-              onClick={() => handleNavigation(item.href)}
-              className={`transition-colors cursor-pointer ${
-                isActive(item.href) ? "text-primary font-medium" : "text-base-content/80 hover:text-primary"
-              }`}
-            >
-              {item.name}
-            </button>
-          )
-        ))}
-      </nav>
+            {navItems.map((item) => (
+              isHomePage ? (
+                <ScrollLink
+                  key={item.name}
+                  to={item.href}
+                  smooth={true}
+                  duration={500}
+                  offset={-70}
+                  className={`transition-colors cursor-pointer ${isActive(item.href) ? "text-primary font-medium" : "text-base-content/80 hover:text-primary"
+                    }`}
+                >
+                  {item.name}
+                </ScrollLink>
+              ) : (
+                <button
+                  key={item.name}
+                  onClick={() => handleNavigation(item.href)}
+                  className={`transition-colors cursor-pointer ${isActive(item.href) ? "text-primary font-medium" : "text-base-content/80 hover:text-primary"
+                    }`}
+                >
+                  {item.name}
+                </button>
+              )
+            ))}
+          </nav>
 
           {/* Desktop Action Buttons */}
           <div className="hidden md:flex items-center space-x-3">
@@ -146,9 +143,8 @@ export function Header() {
                   smooth={true}
                   duration={500}
                   offset={-70}
-                  className={`transition-colors py-2 cursor-pointer ${
-                    isActive(item.href) ? "text-primary font-medium" : "text-base-content/80 hover:text-primary"
-                  }`}
+                  className={`transition-colors py-2 cursor-pointer ${isActive(item.href) ? "text-primary font-medium" : "text-base-content/80 hover:text-primary"
+                    }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
@@ -157,9 +153,8 @@ export function Header() {
                 <button
                   key={item.name}
                   onClick={() => handleNavigation(item.href)}
-                  className={`transition-colors py-2 cursor-pointer ${
-                    isActive(item.href) ? "text-primary font-medium" : "text-base-content/80 hover:text-primary"
-                  }`}
+                  className={`transition-colors py-2 cursor-pointer ${isActive(item.href) ? "text-primary font-medium" : "text-base-content/80 hover:text-primary"
+                    }`}
                 >
                   {item.name}
                 </button>

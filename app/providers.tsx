@@ -24,7 +24,7 @@ const config = getDefaultConfig({
   appName: 'ZetaHopper',
   projectId: 'd742784b5ccb6f694c92d11357eb7daf',
   chains: [zetachain, zetachainAthensTestnet, base],
-  ssr: true  
+  ssr: true
 });
 
 export default function Providers({
@@ -36,7 +36,7 @@ export default function Providers({
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
         <RainbowKitProvider
-        showRecentTransactions={false}
+          showRecentTransactions={false}
           theme={darkTheme({
             accentColor: '#22543d',
             accentColorForeground: 'white',

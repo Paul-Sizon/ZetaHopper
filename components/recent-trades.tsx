@@ -183,7 +183,7 @@ export function RecentTrades() {
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
               <CardTitle className="text-base-content">Trading Activity</CardTitle>
-              <CardDescription className="text-base-content/70">Monitor your bot's trading performance</CardDescription>
+              <CardDescription className="text-base-content/70">Monitor your bot&apos;s trading performance</CardDescription>
             </div>
             <div className="flex flex-wrap items-center gap-2">
               <DropdownMenu>
