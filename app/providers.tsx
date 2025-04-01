@@ -2,15 +2,12 @@
 
 import '@rainbow-me/rainbowkit/styles.css';
 import {
+  darkTheme,
   getDefaultConfig,
   RainbowKitProvider,
 } from '@rainbow-me/rainbowkit';
 import { WagmiProvider } from 'wagmi';
 import {
-  mainnet,
-  polygon,
-  optimism,
-  arbitrum,
   base,
   zetachain,
   zetachainAthensTestnet,
@@ -24,10 +21,10 @@ import React from 'react';
 const queryClient = new QueryClient();
 
 const config = getDefaultConfig({
-  appName: 'My RainbowKit App',
+  appName: 'ZetaHopper',
   projectId: 'd742784b5ccb6f694c92d11357eb7daf',
   chains: [zetachain, zetachainAthensTestnet, base],
-  ssr: true,
+  ssr: true  
 });
 
 export default function Providers({
@@ -38,7 +35,16 @@ export default function Providers({
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
-        <RainbowKitProvider>
+        <RainbowKitProvider
+        showRecentTransactions={false}
+          theme={darkTheme({
+            accentColor: '#22543d',
+            accentColorForeground: 'white',
+            borderRadius: 'small',
+            fontStack: 'system',
+            overlayBlur: 'small',
+          })}
+        >
           {children}
         </RainbowKitProvider>
       </QueryClientProvider>
