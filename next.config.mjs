@@ -16,7 +16,11 @@ const nextConfig = {
   },
 }
 
-mergeConfig(nextConfig, userConfig)
+const userConfig = {
+  reactStrictMode: false,  
+};
+
+mergeConfig(nextConfig, userConfig);
 
 function mergeConfig(nextConfig, userConfig) {
   if (!userConfig) {
