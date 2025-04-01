@@ -1,13 +1,5 @@
 # ZetaHopper
 
-## Getting Started
-
-### Prerequisites
-Ensure you have `pnpm` installed globally. If not, install it using:
-```bash
-npm install -g pnpm
-```
-
 ### Install Dependencies
 Run the following command to install all dependencies:
 ```bash
