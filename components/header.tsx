@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { Wallet, Menu, X, Zap } from "lucide-react"
+import {  Menu, X, Zap } from "lucide-react"
 import { useMediaQuery } from "@/hooks/use-mobile"
 import { ConnectButton } from "@rainbow-me/rainbowkit"
 
