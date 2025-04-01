@@ -11,6 +11,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Wallet, Info, BarChart3, Clock, TrendingUp, AlertTriangle } from "lucide-react"
 import { RecentTrades } from "@/components/recent-trades"
+import { ConnectButton } from "@rainbow-me/rainbowkit"
 
 export function TradingPage() {
   const [amount, setAmount] = useState("1000")
@@ -131,9 +132,17 @@ export function TradingPage() {
                         </span>
                       </div>
                     </div>
-                    <Button className="w-full bg-primary text-primary-content hover:bg-primary/90">
-                      <Wallet className="mr-2 h-4 w-4" /> Connect Wallet to Start
-                    </Button>
+                    <ConnectButton.Custom>
+                      {({ account, openConnectModal }) => (
+                        <Button
+                          className="w-full bg-primary text-primary-content hover:bg-primary/90"
+                          onClick={!account ? openConnectModal : undefined}
+                        >
+                          <Wallet className="mr-2 h-4 w-4" />
+                          {account ? "Start" : "Connect Wallet to Start"}
+                        </Button>
+                      )}
+                    </ConnectButton.Custom>
                   </TabsContent>
                   <TabsContent value="advanced" className="space-y-6 pt-6">
                     <div className="space-y-4">
