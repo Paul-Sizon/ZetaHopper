@@ -7,38 +7,32 @@ export function FaqSection() {
   const faqs = [
     {
       question: "How does ZetaHopper work?",
-      answer:
-        "ZetaHopper is an automated trading bot that operates directly on the Zetachain blockchain. It uses advanced algorithms to analyze market conditions and execute trades at optimal times to maximize returns. You simply connect your wallet, set your trading amount and risk preference, and the bot handles everything else.",
+      answer: "TBD",
     },
     {
       question: "Is my investment safe with ZetaHopper?",
-      answer:
-        "ZetaHopper operates fully on-chain with transparent transactions that you can verify at any time. Your funds remain in your control, and you can withdraw them whenever you want. We implement multiple security measures to ensure the safety of your assets while trading.",
+      answer: "TBD",
     },
     {
       question: "What are the fees for using ZetaHopper?",
-      answer:
-        "ZetaHopper charges a small performance fee of 10% on profits generated. There are no subscription fees or hidden charges. You only pay when the bot makes money for you. Standard network transaction fees on Zetachain will apply for on-chain operations.",
+      answer: "TBD",
     },
     {
       question: "What cryptocurrencies can I trade with ZetaHopper?",
-      answer:
-        "ZetaHopper supports trading of all major tokens available on Zetachain, including ZETA, ETH, BTC, and various stablecoins like USDC. We continuously add support for new tokens as they become available on the Zetachain ecosystem.",
+      answer: "TBD",
     },
     {
       question: "How do I withdraw my funds?",
-      answer:
-        "You can withdraw your funds at any time through our user-friendly interface. Simply connect your wallet, navigate to the dashboard, and click on the withdraw button. Your funds will be transferred back to your wallet immediately.",
+      answer: "TBD",
     },
     {
       question: "What kind of returns can I expect?",
-      answer:
-        "While past performance is not indicative of future results, ZetaHopper has historically generated average monthly returns of 15-20% for users. Returns vary based on market conditions, risk settings, and trading amount. Our dashboard provides transparent reporting on all trading performance.",
+      answer: "TBD",
     },
   ]
 
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32 bg-base-200">
+    <section id="faq" className="w-full py-12 md:py-24 lg:py-32 bg-base-100 border-y border-base-300">
       <div className="container px-4 md:px-6">
         <motion.div
           className="flex flex-col items-center justify-center space-y-4 text-center"

@@ -6,15 +6,18 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Menu, X, Zap, Rocket } from "lucide-react"
 import { useMediaQuery } from "@/hooks/use-mobile"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import { ConnectButton } from "@rainbow-me/rainbowkit"
+import { Link as ScrollLink } from "react-scroll"
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const isMobile = useMediaQuery("(max-width: 768px)")
   const pathname = usePathname()
+  const router = useRouter()
   const isTradeRoute = pathname === "/trade"
+    const isHomePage = pathname === "/"
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,16 +36,30 @@ export function Header() {
     setIsMenuOpen(!isMenuOpen)
   }
 
+  const handleNavigation = (href: string) => {
+    setIsMenuOpen(false) // Close mobile menu if open
+    
+    if (!isHomePage) {
+      // If we're not on the home page, first navigate to home
+      router.push('/')
+      // Wait for navigation to complete then scroll
+      setTimeout(() => {
+        const element = document.getElementById(href)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+      }, 100)
+    }
+  }
+
   const navItems = [
-    { name: "Home", href: "/" },
-    { name: "Features", href: "/#features" },
-    { name: "How It Works", href: "/#how-it-works" },
-    { name: "FAQ", href: "/#faq" },
+    { name: "Home", href: "home" },    
+    { name: "How It Works", href: "how-it-works" },
+    { name: "FAQ", href: "faq" },
   ]
 
   const isActive = (href: string) => {
-    if (href === "/") return pathname === "/"
-    return pathname.startsWith(href)
+    return pathname === "/" && isMobile ? false : pathname.startsWith(href)
   }
 
   return (
@@ -62,18 +79,33 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={`transition-colors ${
-                  isActive(item.href) ? "text-primary font-medium" : "text-base-content/80 hover:text-primary"
-                }`}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </nav>
+        {navItems.map((item) => (
+          isHomePage ? (
+            <ScrollLink
+              key={item.name}
+              to={item.href}
+              smooth={true}
+              duration={500}
+              offset={-70}
+              className={`transition-colors cursor-pointer ${
+                isActive(item.href) ? "text-primary font-medium" : "text-base-content/80 hover:text-primary"
+              }`}
+            >
+              {item.name}
+            </ScrollLink>
+          ) : (
+            <button
+              key={item.name}
+              onClick={() => handleNavigation(item.href)}
+              className={`transition-colors cursor-pointer ${
+                isActive(item.href) ? "text-primary font-medium" : "text-base-content/80 hover:text-primary"
+              }`}
+            >
+              {item.name}
+            </button>
+          )
+        ))}
+      </nav>
 
           {/* Desktop Action Buttons */}
           <div className="hidden md:flex items-center space-x-3">
@@ -107,16 +139,31 @@ export function Header() {
         >
           <div className="container px-4 py-4 flex flex-col space-y-4">
             {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={`transition-colors py-2 ${
-                  isActive(item.href) ? "text-primary font-medium" : "text-base-content/80 hover:text-primary"
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
+              isHomePage ? (
+                <ScrollLink
+                  key={item.name}
+                  to={item.href}
+                  smooth={true}
+                  duration={500}
+                  offset={-70}
+                  className={`transition-colors py-2 cursor-pointer ${
+                    isActive(item.href) ? "text-primary font-medium" : "text-base-content/80 hover:text-primary"
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.name}
+                </ScrollLink>
+              ) : (
+                <button
+                  key={item.name}
+                  onClick={() => handleNavigation(item.href)}
+                  className={`transition-colors py-2 cursor-pointer ${
+                    isActive(item.href) ? "text-primary font-medium" : "text-base-content/80 hover:text-primary"
+                  }`}
+                >
+                  {item.name}
+                </button>
+              )
             ))}
             {!isTradeRoute && (
               <Link href="/trade" onClick={() => setIsMenuOpen(false)}>

@@ -17,7 +17,7 @@ export default function Home() {
         <FeaturesSection />
         <HowItWorksSection />
         <TradingFormSection />
-        <StatsSection />
+        {/* <StatsSection /> */}
         <FaqSection />
         <CtaSection />
       </main>

@@ -23,7 +23,7 @@ export function HowItWorksSection() {
   ]
 
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32 bg-base-100">
+    <section id="how-it-works" className="w-full py-12 md:py-24 lg:py-32 bg-base-100">
       <div className="container px-4 md:px-6">
         <motion.div
           className="flex flex-col items-center justify-center space-y-4 text-center"

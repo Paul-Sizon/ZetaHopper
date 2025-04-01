@@ -85,17 +85,17 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-base-content/70 hover:text-primary">
+                <Link href="/privacy" className="text-base-content/70 hover:text-primary">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-base-content/70 hover:text-primary">
+                <Link href="/legal" className="text-base-content/70 hover:text-primary">
                   Cookie Policy
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-base-content/70 hover:text-primary">
+                <Link href="/risk" className="text-base-content/70 hover:text-primary">
                   Risk Disclosure
                 </Link>
               </li>

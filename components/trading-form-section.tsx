@@ -127,7 +127,10 @@ export function TradingFormSection() {
                     risk preference.
                   </span>
                 </div>
-                <Button className="w-full bg-primary text-primary-content hover:bg-primary/90">
+                <Button
+                  className="w-full bg-primary text-primary-content hover:bg-primary/90"
+                  onClick={() => window.location.href = "/trade"}
+                >
                   <Wallet className="mr-2 h-4 w-4" /> Connect Wallet to Start
                 </Button>
               </div>

@@ -137,7 +137,7 @@ export function TradingPage() {
                   </TabsContent>
                   <TabsContent value="advanced" className="space-y-6 pt-6">
                     <div className="space-y-4">
-                      <div className="space-y-2">
+                      {/* <div className="space-y-2">
                         <Label htmlFor="strategy" className="text-base-content">
                           Trading Strategy
                         </Label>
@@ -152,7 +152,7 @@ export function TradingPage() {
                             <SelectItem value="grid">Grid Trading</SelectItem>
                           </SelectContent>
                         </Select>
-                      </div>
+                      </div> */}
                       <div className="space-y-2">
                         <Label htmlFor="timeframe" className="text-base-content">
                           Timeframe
@@ -170,7 +170,7 @@ export function TradingPage() {
                           </SelectContent>
                         </Select>
                       </div>
-                      <div className="space-y-2">
+                      {/* <div className="space-y-2">
                         <Label htmlFor="leverage" className="text-base-content">
                           Leverage
                         </Label>
@@ -185,7 +185,7 @@ export function TradingPage() {
                             <SelectItem value="10">10x</SelectItem>
                           </SelectContent>
                         </Select>
-                      </div>
+                      </div> */}
                       <div className="space-y-2">
                         <Label htmlFor="stop-loss" className="text-base-content">
                           Stop Loss (%)
@@ -299,23 +299,7 @@ export function TradingPage() {
                   </div>
                 </div>
               </CardContent>
-            </Card>
-
-            {/* Quick Help */}
-            <Card className="bg-base-200 border-base-300">
-              <CardHeader>
-                <CardTitle className="text-base-content">Quick Help</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-2 text-base-content/70 text-sm">
-                  <p>• Connect your wallet to start trading</p>
-                  <p>• Set your trading amount and risk level</p>
-                  <p>• The bot will automatically execute trades</p>
-                  <p>• Monitor performance in real-time</p>
-                  <p>• Withdraw funds anytime with no lock-up</p>
-                </div>
-              </CardContent>
-            </Card>
+            </Card>         
           </motion.div>
         </div>
 

@@ -186,15 +186,9 @@ export function RecentTrades() {
               <CardDescription className="text-base-content/70">Monitor your bot's trading performance</CardDescription>
             </div>
             <div className="flex flex-wrap items-center gap-2">
-              <div className="relative">
-                <Input
-                  placeholder="Search trades..."
-                  className="h-9 w-full sm:w-[180px] bg-base-100 border-base-300 text-base-content"
-                />
-              </div>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="outline" size="sm" className="h-9 border-base-300 text-base-content">
+                  <Button variant="outline" size="sm" className="h-9 border-base-300 text-black">
                     <Filter className="mr-2 h-4 w-4" />
                     Filter
                     <ChevronDown className="ml-2 h-4 w-4" />
@@ -277,19 +271,17 @@ export function RecentTrades() {
                       {filteredTrades.map((trade, index) => (
                         <tr
                           key={trade.id}
-                          className={`border-b border-base-300 text-base-content ${
-                            index === filteredTrades.length - 1 ? "border-b-0" : ""
-                          }`}
+                          className={`border-b border-base-300 text-base-content ${index === filteredTrades.length - 1 ? "border-b-0" : ""
+                            }`}
                         >
                           <td className="px-4 py-3 font-medium">{trade.id}</td>
                           <td className="px-4 py-3">{trade.pair}</td>
                           <td className="px-4 py-3">
                             <Badge
-                              className={`${
-                                trade.type === "BUY"
+                              className={`${trade.type === "BUY"
                                   ? "bg-success/20 text-success hover:bg-success/30"
                                   : "bg-error/20 text-error hover:bg-error/30"
-                              }`}
+                                }`}
                             >
                               {trade.type}
                             </Badge>
@@ -300,9 +292,8 @@ export function RecentTrades() {
                           <td className="px-4 py-3 text-right">
                             {trade.profit && (
                               <div
-                                className={`flex items-center justify-end font-medium ${
-                                  trade.profitable ? "text-success" : "text-error"
-                                }`}
+                                className={`flex items-center justify-end font-medium ${trade.profitable ? "text-success" : "text-error"
+                                  }`}
                               >
                                 {trade.profitable ? (
                                   <TrendingUp className="mr-1 h-4 w-4" />
@@ -341,10 +332,10 @@ export function RecentTrades() {
                   Showing <strong>{filteredTrades.length}</strong> out of <strong>{mockTrades.length}</strong> trades
                 </div>
                 <div className="flex items-center gap-2">
-                  <Button variant="outline" size="sm" className="h-8 border-base-300 text-base-content">
+                  <Button variant="outline" size="sm" className="h-8 border-base-300 text-black">
                     Previous
                   </Button>
-                  <Button variant="outline" size="sm" className="h-8 border-base-300 text-base-content">
+                  <Button variant="outline" size="sm" className="h-8 border-base-300 text-black">
                     Next
                   </Button>
                 </div>
@@ -372,19 +363,17 @@ export function RecentTrades() {
                       {mockPositions.map((position, index) => (
                         <tr
                           key={position.id}
-                          className={`border-b border-base-300 text-base-content ${
-                            index === mockPositions.length - 1 ? "border-b-0" : ""
-                          }`}
+                          className={`border-b border-base-300 text-base-content ${index === mockPositions.length - 1 ? "border-b-0" : ""
+                            }`}
                         >
                           <td className="px-4 py-3 font-medium">{position.id}</td>
                           <td className="px-4 py-3">{position.pair}</td>
                           <td className="px-4 py-3">
                             <Badge
-                              className={`${
-                                position.type === "LONG"
+                              className={`${position.type === "LONG"
                                   ? "bg-success/20 text-success hover:bg-success/30"
                                   : "bg-error/20 text-error hover:bg-error/30"
-                              }`}
+                                }`}
                             >
                               {position.type}
                             </Badge>
@@ -399,9 +388,8 @@ export function RecentTrades() {
                           <td className="px-4 py-3 text-right">{position.value}</td>
                           <td className="px-4 py-3 text-right">
                             <div
-                              className={`flex items-center justify-end font-medium ${
-                                position.profitable ? "text-success" : "text-error"
-                              }`}
+                              className={`flex items-center justify-end font-medium ${position.profitable ? "text-success" : "text-error"
+                                }`}
                             >
                               {position.profitable ? (
                                 <TrendingUp className="mr-1 h-4 w-4" />

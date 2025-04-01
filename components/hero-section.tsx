@@ -6,7 +6,7 @@ import Link from "next/link"
 
 export function HeroSection() {
   return (
-    <section className="pt-16 w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-base-100">
+    <section id="home" className="pt-2 w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-base-100">
       <div className="container px-4 md:px-6">
         <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
           <motion.div
@@ -49,13 +49,13 @@ export function HeroSection() {
               transition={{ delay: 0.5, duration: 0.5 }}
             >
               <Link href="/trade">
-                <Button size="lg" className="bg-primary text-primary-content hover:bg-primary/90">
-                  Start Trading <ArrowRight className="ml-2 h-4 w-4" />
+                <Button
+                  size="lg"
+                  className="bg-primary text-primary-content hover:bg-primary/90 px-8 py-4 text-lg"
+                >
+                  Start Trading <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
-              <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary/10">
-                Learn More
-              </Button>
             </motion.div>
           </motion.div>
           <motion.div

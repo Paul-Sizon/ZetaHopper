@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Rocket } from "lucide-react"
+import Link from "next/link"
 
 export function CtaSection() {
   return (
@@ -30,15 +31,13 @@ export function CtaSection() {
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.5 }}
           >
-            <Button size="lg" className="bg-accent text-accent-content hover:bg-accent/90">
-              <Rocket className="mr-2 h-4 w-4" /> Launch App
-            </Button>
             <Button
-              variant="outline"
               size="lg"
-              className="border-primary-content text-primary-content hover:bg-primary-content/10"
+              className="bg-accent text-accent-content hover:bg-accent/90"
             >
-              Learn More
+              <Link href="/trade" className="flex items-center">
+                <Rocket className="mr-2 h-4 w-4" /> Launch App
+              </Link>
             </Button>
           </motion.div>
         </motion.div>
