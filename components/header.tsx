@@ -71,7 +71,7 @@ export function Header() {
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2">
-              <Zap className="h-8 w-8 text-primary" />
+            <img src="/logo_3.webp" alt="ZetaHopper Logo" className="h-12 w-12" />
               <span className="text-xl font-bold text-base-content">ZetaHopper</span>
             </Link>
           </div>
